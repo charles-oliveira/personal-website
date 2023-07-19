@@ -1,5 +1,3 @@
-/* GENERAL */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 * {
@@ -9,13 +7,79 @@
   -webkit-font-smoothing: antialiased;
 }
 
-html {
+[data-theme='dark'] {
+  --color-canvas: #14182c;
+  --color-well: #242b4f;
+  --color-text: #fff;
+}
+
+[data-theme='light'] {
+  --color-canvas: #fff;
+  --color-well: #e6e6e6;
+  --color-text: #161e40;
+}
+
+html,
+body {
   scroll-behavior: smooth;
+  background: var(--color-canvas);
 }
 
 body {
   font-family: 'Poppins', sans-serif;
+  transition: 0.3s linear;
+  color: var(--color-text);
 }
+
+/* Add dark theme  */
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: #111;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 5px;
+  position: relative;
+  width: 50px;
+
+  transform: scale(1.2);
+}
+
+.label .ball {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+
+  height: 22px;
+  width: 22px;
+
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+/* -------------------- */
 
 p {
   color: rgb(85, 85, 85);
@@ -41,6 +105,37 @@ nav {
   height: 17vh;
 }
 
+#scroll-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: background-color 0.3s;
+  z-index: 100;
+}
+
+.nav-links {
+  transition: backdrop-filter 0.3s;
+  backdrop-filter: blur(1);
+}
+
+#scroll-nav.scroll-active .nav-links {
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+nav #theme-toggle {
+  background: var(--color-well);
+}
+[data-theme='dark'] .header #theme-toggle #theme-toggle-light {
+  display: none;
+}
+
+[data-theme='light'] .header #theme-toggle #theme-toggle-dark {
+  display: none;
+}
+
 .nav-links {
   gap: 2rem;
   list-style: none;
@@ -48,7 +143,7 @@ nav {
 }
 
 a {
-  color: black;
+  color: var(--color-text);
   text-decoration: none;
   text-decoration-color: white;
 }
@@ -173,7 +268,7 @@ section {
   display: flex;
   height: 400px;
   width: 400px;
-  margin: auto 0;
+  margin: 0 auto;
 }
 
 .section__text {
@@ -183,6 +278,10 @@ section {
 
 .section__text p {
   font-weight: 600;
+}
+
+.text-container p {
+  color: var(--color-text);
 }
 
 .section__text__p1 {
