@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-  #desktop-nav {
+  #scroll-nav {
     display: none;
   }
   #hamburguer-nav {
