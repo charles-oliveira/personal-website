@@ -21,9 +21,9 @@ menuLinks.forEach(link => {
     target.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
-    });
-  });
-});
+    })
+  })
+})
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 0) {
@@ -31,7 +31,7 @@ window.addEventListener('scroll', () => {
   } else {
     scrollNav.classList.remove('scroll-active')
   }
-});
+})
 
 navLinks.forEach(link => {
   link.addEventListener('click', e => {
@@ -40,9 +40,9 @@ navLinks.forEach(link => {
     target.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
-    });
-  });
-});
+    })
+  })
+})
 
 // Dark Mode
 function changeColorScheme(newColorScheme) {
@@ -66,7 +66,7 @@ if (localStorage.colorScheme) {
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
   const newColorScheme = e.matches ? 'dark' : 'light'
   changeColorScheme(newColorScheme)
-});
+})
 
 // Animando texto
 const text = '_Software Developer'
